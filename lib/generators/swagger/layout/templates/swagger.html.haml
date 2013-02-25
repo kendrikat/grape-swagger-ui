@@ -1,0 +1,49 @@
+!!!
+%html{ :xmlns => "http://www.w3.org/1999/xhtml", :lang => I18n.locale.to_s, "xml:lang" => I18n.locale.to_s }
+  %head
+    %title Swagger UI
+
+    = javascript_include_tag :swagger_ui
+    = stylesheet_link_tag :swagger_ui, :media => :all
+    = csrf_meta_tags
+
+    :css
+      .swagger-ui-wrap {
+        max-width: 80%;
+        min-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    
+    :javascript
+      $(function(){
+        $.ajaxPrefilter(function(o, options){
+          options.headers = { 'X-CSRF-Token': '#{form_authenticity_token.to_s}' }
+        });      
+      });
+
+      $(function () {
+        window.swaggerUi = new SwaggerUi({
+          discoveryUrl: "http://#{request.host}:#{request.port}/api/swagger_doc.json",
+          apiKey:"",
+          dom_id:"swagger-ui-container",
+          supportHeaderParams: false,
+          supportedSubmitMethods: ['get', 'post', 'put']
+        });
+        window.swaggerUi.load();
+      });
+
+  %body
+    #header
+      .swagger-ui-wrap
+        %a#logo{ href: "http://swagger.wordnik.com" } Swagger
+        %form#api_selector
+          .input
+            %input#input_baseUrl{ placeholder: "http://example.com/api", name: "baseUrl", type: "text" }
+          .input
+            %input#input_apiKey{ placeholder: "api_key", name: "apiKey", type: "text" }
+          .input
+            %a#explore{ href: "#"} Explore
+
+    #message-bar.swagger-ui-wrap &nbsp;
+    #swagger-ui-container.swagger-ui-wrap
