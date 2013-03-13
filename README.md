@@ -1,4 +1,4 @@
-# Swagger::Ui::Rails
+# Grape::Swagger::Ui
 
 TODO/WIP: Write a gem description
 
@@ -14,7 +14,7 @@ Works best with :)
 
 Add this line to your application's Gemfile:
 
-    gem 'swagger-ui-rails'
+    gem 'grape-swagger-ui'
 
 And then execute:
 
@@ -22,7 +22,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install swagger-ui-rails
+    $ gem install grape-swagger-ui
 
 ## Usage
 
