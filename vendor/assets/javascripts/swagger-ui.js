@@ -1563,7 +1563,10 @@ templates['status_code'] = template(function (Handlebars,depth0,helpers,partials
           _ref3 = this.model.parameters;
           for (_l = 0, _len3 = _ref3.length; _l < _len3; _l++) {
             param = _ref3[_l];
-            bodyParam.append(param.name, map[param.name]);
+            var paramValue = map[param.name];
+            if (param && paramValue) {
+              bodyParam.append(param.name, map[param.name]);
+            }
           }
         } else {
           bodyParam = null;
@@ -1941,3 +1944,4 @@ templates['status_code'] = template(function (Handlebars,depth0,helpers,partials
   })(Backbone.View);
 
 }).call(this);
+
