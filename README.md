@@ -1,5 +1,7 @@
 # Grape::Swagger::Ui
 
+[![Code Climate](https://codeclimate.com/github/kendrikat/grape-swagger-ui.png)](https://codeclimate.com/github/kendrikat/grape-swagger-ui)
+
 TODO/WIP: Write a gem description
 
 This is experimental and my first gem :)
