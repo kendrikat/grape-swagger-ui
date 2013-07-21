@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["klaas.endrikat@googlemail.com"]
   gem.description   = %q{swagger ui js integration for grape and grape-swagger}
   gem.summary       = %q{swagger ui js integration for grape and grape-swagger}
-  gem.homepage      = "https://github.com/klausistblau/grape-swagger-ui"
+  gem.homepage      = "https://github.com/kendrikat/grape-swagger-ui"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

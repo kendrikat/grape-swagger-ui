@@ -1,18 +1,23 @@
-# Grape::Swagger::Ui
+Grape::Swagger::Ui
+===============
 
 [![Code Climate](https://codeclimate.com/github/kendrikat/grape-swagger-ui.png)](https://codeclimate.com/github/kendrikat/grape-swagger-ui)
 
 TODO/WIP: Write a gem description
 
-This is experimental and my first gem :)
+Integrates [swagger-ui] with your "grapified" Rails3 application.
 
-Integrates swagger-ui.js to your "grapified" Rails3 application.
+Dependencies
+-
 
-Works best with :)
-- grape-swagger => https://github.com/tim-vandecasteele/grape-swagger
-- grape => https://github.com/intridea/grape
+* [grape-swagger] 
+> Add swagger compliant documentation to your grape API
 
-## Installation
+* [grape] 
+> An opinionated micro-framework for creating REST-like APIs in Ruby
+
+Installation
+-
 
 Add this line to your application's Gemfile:
 
@@ -26,13 +31,12 @@ Or install it yourself as:
 
     $ gem install grape-swagger-ui
 
-## Usage
-
-TODO/WIP: Write usage instructions here
+Usage
+-
 
 If your api path is "api/v1" just go to 
 
-	http://localhost:3000/api/swagger
+    http://host:port/api/swagger
 
 else
 
@@ -47,6 +51,10 @@ Since this is a seperate layout and if you want to use this in your staging envi
 	#staging.rb
 	config.assets.precompile += ["swagger_ui.css", "swagger_ui.js"]
 	
+Version
+--------
+0.0.2
+
 ## Contributing
 
 1. Fork it
@@ -54,3 +62,13 @@ Since this is a seperate layout and if you want to use this in your staging envi
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## License
+MIT License, full text of license see [here][License]
+
+*Free Software, Fuck Yeah!*
+
+[License]: https://github.com/kendrikat/grape-swagger-ui/blob/master/LICENSE.txt "LICENSE"
+[grape-swagger]: https://github.com/tim-vandecasteele/grape-swagger
+[grape]: https://github.com/intridea/grape
+[swagger-ui]: https://github.com/wordnik/swagger-ui/  
