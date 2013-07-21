@@ -10,6 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["klaas.endrikat@googlemail.com"]
   gem.description   = %q{swagger ui js integration for grape and grape-swagger}
   gem.summary       = %q{swagger ui js integration for grape and grape-swagger}
+  gem.license       = 'MIT'
   gem.homepage      = "https://github.com/kendrikat/grape-swagger-ui"
 
   gem.files         = `git ls-files`.split($/)
