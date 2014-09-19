@@ -24,7 +24,7 @@
 
       $(function () {
         window.swaggerUi = new SwaggerUi({
-          discoveryUrl: "http://#{request.host}:#{request.port}/api/swagger_doc.json",
+          url: "http://#{request.host}:#{request.port}/api/swagger_doc.json",
           apiKey:"",
           dom_id:"swagger-ui-container",
           supportHeaderParams: false,
@@ -62,7 +62,7 @@
         window.swaggerUi.load();
       });
 
-  %body
+  %body.swagger-section
     #header
       .swagger-ui-wrap
         %a#logo{ href: "http://swagger.wordnik.com" } Swagger
