@@ -1,7 +1,7 @@
 class SwaggerController < ApplicationController
 
-  layout "swagger"
-
+  layout false
+  
   def index
   end
   
