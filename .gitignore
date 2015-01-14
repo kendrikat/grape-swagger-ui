@@ -17,3 +17,5 @@ test/tmp
 test/version_tmp
 tmp
 *.iml
+atlassian-ide-plugin.xml
+.idea/

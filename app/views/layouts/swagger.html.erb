@@ -1,91 +1,82 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="<%= I18n.locale.to_s %>" xml:lang="<%= I18n.locale.to_s %>" xmlns="http://www.w3.org/1999/xhtml">
-  <head>
+<head>
     <title>Swagger UI</title>
     <%= javascript_include_tag :swagger_ui %>
     <%= stylesheet_link_tag "//fonts.googleapis.com/css?family=Droid+Sans:400,700" %>
     <%= stylesheet_link_tag :swagger_ui, :media => :all %>
     <%= csrf_meta_tags %>
-    <css>
 
-      .swagger-ui-wrap {
-        max-width: 80%;
-        min-width: 960px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-
-    </css>
     <script>
 
-      $(function(){
-        $.ajaxPrefilter(function(o, options){
-          options.headers = { 'X-CSRF-Token': '#{form_authenticity_token.to_s}' }
-        });
-      });
-
-      $(function () {
-        window.swaggerUi = new SwaggerUi({
-          url: "http://#{request.host}:#{request.port}/api/swagger_doc.json",
-          apiKey:"",
-          dom_id:"swagger-ui-container",
-          supportHeaderParams: false,
-          supportedSubmitMethods: ['get', 'post', 'put'],
-          onComplete: function(swaggerApi, swaggerUi){
-            log("Loaded SwaggerUI");
-            if(typeof initOAuth == "function") {
-              /*
-                initOAuth({
-                clientId: "your-client-id",
-                realm: "your-realms",
-                appName: "your-app-name"
-                });
-              */
-            }
-            $('pre code').each(function(i, e) {
-              hljs.highlightBlock(e)
+        $(function () {
+            $.ajaxPrefilter(function (o, options) {
+                options.headers = {'X-CSRF-Token': '#{form_authenticity_token.to_s}'}
             });
-          },
-          onFailure: function(data) {
-            log("Unable to Load SwaggerUI");
-          },
-          docExpansion: "none",
-          sorter : "alpha"
         });
 
-        $('#input_apiKey').change(function() {
-          var key = $('#input_apiKey')[0].value;
-          log("key: " + key);
-          if(key && key.trim() != "") {
-            log("added key " + key);
-            window.authorizations.add("key", new ApiKeyAuthorization("api_key", key, "query"));
-          }
-        })
-        window.swaggerUi.load();
-      });
+        $(function () {
+            window.swaggerUi = new SwaggerUi({
+                url: "http://<%= request.host%>:<%=request.port%>/api/swagger_doc",
+                apiKey: "",
+                dom_id: "swagger-ui-container",
+                supportHeaderParams: false,
+                supportedSubmitMethods: ['get', 'post', 'put'],
+                onComplete: function (swaggerApi, swaggerUi) {
+                    log("Loaded SwaggerUI");
+                    if (typeof initOAuth == "function") {
+                        /*
+                         initOAuth({
+                         clientId: "your-client-id",
+                         realm: "your-realms",
+                         appName: "your-app-name"
+                         });
+                         */
+                    }
+                    $('pre code').each(function (i, e) {
+                        hljs.highlightBlock(e)
+                    });
+                },
+                onFailure: function (data) {
+                    log("Unable to Load SwaggerUI");
+                },
+                docExpansion: "none",
+                sorter: "alpha"
+            });
+
+            $('#input_apiKey').change(function () {
+                var key = $('#input_apiKey')[0].value;
+                log("key: " + key);
+                if (key && key.trim() != "") {
+                    log("added key " + key);
+                    window.authorizations.add("key", new ApiKeyAuthorization("api_key", key, "query"));
+                }
+            })
+            window.swaggerUi.load();
+        });
 
 
     </script>
-  </head>
-  <body class="swagger-section">
-    <div id="header">
-      <div class="swagger-ui-wrap">
+</head>
+<body class="swagger-section">
+<div id="header">
+    <div class="swagger-ui-wrap">
         <a href="http://swagger.wordnik.com" id="logo">Swagger</a>
+
         <form id="api_selector">
-          <div class="input">
-            <input id="input_baseUrl" name="baseUrl" placeholder="http://example.com/api" type="text"></input>
-          </div>
-          <div class="input">
-            <input id="input_apiKey" name="apiKey" placeholder="api_key" type="text"></input>
-          </div>
-          <div class="input">
-            <a href="#" id="explore">Explore</a>
-          </div>
+            <div class="input">
+                <input id="input_baseUrl" name="baseUrl" placeholder="http://example.com/api" type="text"></input>
+            </div>
+            <div class="input">
+                <input id="input_apiKey" name="apiKey" placeholder="api_key" type="text"></input>
+            </div>
+            <div class="input">
+                <a href="#" id="explore">Explore</a>
+            </div>
         </form>
-      </div>
     </div>
-    <div class="swagger-ui-wrap" id="message-bar">&nbsp;</div>
-    <div class="swagger-ui-wrap" id="swagger-ui-container"></div>
-  </body>
+</div>
+<div class="swagger-ui-wrap" id="message-bar">&nbsp;</div>
+<div class="swagger-ui-wrap" id="swagger-ui-container"></div>
+</body>
 </html>
