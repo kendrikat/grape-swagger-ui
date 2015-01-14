@@ -7,6 +7,11 @@ TODO/WIP: Write a gem description
 
 Integrates [swagger-ui] with your "grapified" Rails3 application.
 
+** UPDATE FOR 0.0.5 **
+-
+
+- The property for specifying your Swagger endpoint on SwaggerUi has been renamed from 'discoveryUrl' to just 'url'.  This has been updated in the index page template 'swagger.html.haml' but you will need to either regenerate or manually edit your existing page.
+
 Dependencies
 -
 
@@ -53,7 +58,7 @@ Since this is a seperate layout and if you want to use this in your staging envi
 	
 Version
 --------
-0.0.2
+0.0.5
 
 ## Contributing
 
