@@ -11,15 +11,19 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 
-//= require './lib/shred.bundle.js'
-//= require './lib/jquery-1.8.0.min.js'
+//= require './lib/object-assign-pollyfy-1.8.0.min.js'
 //= require './lib/jquery.slideto.min.js'
 //= require './lib/jquery.wiggle.min.js'
-//= require './lib/jquery.ba-bbq.min.js' 
-//= require './lib/handlebars-1.0.0.js' 
-//= require './lib/underscore-min.js' 
-//= require './lib/backbone-min.js' 
-//= require './lib/swagger.js' 
-//= require 'swagger-ui.js' 
-//= require './lib/highlight.7.3.pack.js'
+//= require './lib/jquery.ba-bbq.min.js'
+//= require './lib/handlebars-2.0.0.js'
+//= require './lib/js-yaml.min.js'
+//= require './lib/lodash.min.js'
+//= require './lib/backbone-min.js'
+//= require './swagger-ui.js'
+//= require './lib/highlight.9.1.0.pack.js'
+//= require './lib/highlight.9.1.0.pack_extended.js'
+//= require './lib/jsoneditor.min.js'
+//= require './lib/marked.js'
 //= require './lib/swagger-oauth.js'
+
+
