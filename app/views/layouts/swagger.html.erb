@@ -4,79 +4,93 @@
     <title>Swagger UI</title>
     <%= javascript_include_tag :swagger_ui %>
     <%= stylesheet_link_tag "//fonts.googleapis.com/css?family=Droid+Sans:400,700" %>
-    <%= stylesheet_link_tag :swagger_ui, :media => :all %>
+    <%= stylesheet_link_tag :swagger_ui_screen, :media => :screen %>
+    <%= stylesheet_link_tag :swagger_ui_print, :media => :print %>
     <%= csrf_meta_tags %>
 
-    <script>
+    <script type="text/javascript">
+      $(function () {
+        var url = window.location.search.match(/url=([^&]+)/);
+        if (url && url.length > 1) {
+          url = decodeURIComponent(url[1]);
+        } else {
+          url = "http://<%= request.host%>:<%=request.port%>/api/v1/swagger_doc";
+        }
 
-        $(function () {
-            $.ajaxPrefilter(function (o, options) {
-                options.headers = {'X-CSRF-Token': '#{form_authenticity_token.to_s}'}
-            });
+        hljs.configure({
+          highlightSizeThreshold: 5000
         });
 
-        $(function () {
-            window.swaggerUi = new SwaggerUi({
-                url: "http://<%= request.host%>:<%=request.port%>/api/swagger_doc",
-                apiKey: "",
-                dom_id: "swagger-ui-container",
-                supportHeaderParams: false,
-                supportedSubmitMethods: ['get', 'post', 'put'],
-                onComplete: function (swaggerApi, swaggerUi) {
-                    log("Loaded SwaggerUI");
-                    if (typeof initOAuth == "function") {
-                        /*
-                         initOAuth({
-                         clientId: "your-client-id",
-                         realm: "your-realms",
-                         appName: "your-app-name"
-                         });
-                         */
-                    }
-                    $('pre code').each(function (i, e) {
-                        hljs.highlightBlock(e)
-                    });
-                },
-                onFailure: function (data) {
-                    log("Unable to Load SwaggerUI");
-                },
-                docExpansion: "none",
-                sorter: "alpha"
-            });
+        // Pre load translate...
+        if(window.SwaggerTranslator) {
+          window.SwaggerTranslator.translate();
+        }
+        window.swaggerUi = new SwaggerUi({
+          url: url,
+          dom_id: "swagger-ui-container",
+          supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
+          onComplete: function(swaggerApi, swaggerUi){
+            if(typeof initOAuth == "function") {
+              initOAuth({
+                clientId: "your-client-id",
+                clientSecret: "your-client-secret-if-required",
+                realm: "your-realms",
+                appName: "your-app-name",
+                scopeSeparator: ",",
+                additionalQueryStringParams: {}
+              });
+            }
 
-            $('#input_apiKey').change(function () {
-                var key = $('#input_apiKey')[0].value;
-                log("key: " + key);
-                if (key && key.trim() != "") {
-                    log("added key " + key);
-                    window.authorizations.add("key", new ApiKeyAuthorization("api_key", key, "query"));
-                }
-            })
-            window.swaggerUi.load();
+            if(window.SwaggerTranslator) {
+              window.SwaggerTranslator.translate();
+            }
+          },
+          onFailure: function(data) {
+            log("Unable to Load SwaggerUI");
+          },
+          docExpansion: "none",
+          jsonEditor: false,
+          defaultModelRendering: 'schema',
+          showRequestHeaders: false
         });
 
+        $('#input_apiKey').change(function() {
+          var key = $('#input_apiKey')[0].value;
+          if(key && key.trim() != "") {
+            swaggerUi.api.clientAuthorizations.add("key", new SwaggerClient.ApiKeyAuthorization("api_key", key, "query"));
+          }
+        })
 
+        window.swaggerUi.load();
+
+        function log() {
+          if ('console' in window) {
+            console.log.apply(console, arguments);
+          }
+        }
+    });
     </script>
-</head>
-<body class="swagger-section">
-<div id="header">
-    <div class="swagger-ui-wrap">
-        <a href="http://swagger.wordnik.com" id="logo">Swagger</a>
 
-        <form id="api_selector">
-            <div class="input">
-                <input id="input_baseUrl" name="baseUrl" placeholder="http://example.com/api" type="text"></input>
-            </div>
-            <div class="input">
-                <input id="input_apiKey" name="apiKey" placeholder="api_key" type="text"></input>
-            </div>
-            <div class="input">
-                <a href="#" id="explore">Explore</a>
-            </div>
-        </form>
-    </div>
+</head>
+
+
+<body class="swagger-section">
+<div id='header'>
+  <div class="swagger-ui-wrap">
+    <a id="logo" href="http://swagger.io"><span class="logo__title">swagger</span></a>
+    <form id='api_selector'>
+      <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
+      <div class="input">
+				<input id="input_apiKey" name="apiKey" placeholder="api_key" type="text"></input>
+			</div>
+      <div id='auth_container'></div>
+      <div class='input'><a id="explore" class="header__btn" href="#" data-sw-translate>Explore</a></div>
+    </form>
+  </div>
 </div>
-<div class="swagger-ui-wrap" id="message-bar">&nbsp;</div>
-<div class="swagger-ui-wrap" id="swagger-ui-container"></div>
+
+<div id="message-bar" class="swagger-ui-wrap" data-sw-translate>&nbsp;</div>
+<div id="swagger-ui-container" class="swagger-ui-wrap"></div>
 </body>
+
 </html>
