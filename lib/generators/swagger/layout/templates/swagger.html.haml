@@ -15,14 +15,14 @@
         margin-left: auto;
         margin-right: auto;
       }
-    
+
     :javascript
       $(function () {
         var url = window.location.search.match(/url=([^&]+)/);
         if (url && url.length > 1) {
           url = decodeURIComponent(url[1]);
         } else {
-          url = "http://<%= request.host%>:<%=request.port%>/api/v1/swagger_doc";
+          url = "http://#{request.host}:#{request.port}/api/v1/swagger_doc";
         }
 
         hljs.configure({
