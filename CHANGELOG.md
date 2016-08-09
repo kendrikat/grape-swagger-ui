@@ -2,12 +2,23 @@
 
 ## [Unreleased](https://github.com/kendrikat/grape-swagger-ui/tree/HEAD)
 
-[Full Changelog](https://github.com/kendrikat/grape-swagger-ui/compare/v0.0.2...HEAD)
+[Full Changelog](https://github.com/kendrikat/grape-swagger-ui/compare/v0.0.3...HEAD)
+
+**Closed issues:**
+
+- Swagger UI needs to be updated  [\#9](https://github.com/kendrikat/grape-swagger-ui/issues/9)
+
+## [v0.0.3](https://github.com/kendrikat/grape-swagger-ui/tree/v0.0.3) (2016-08-09)
+[Full Changelog](https://github.com/kendrikat/grape-swagger-ui/compare/v0.0.2...v0.0.3)
 
 **Closed issues:**
 
 - Routing not working [\#6](https://github.com/kendrikat/grape-swagger-ui/issues/6)
 - haml issue in rails 4 [\#4](https://github.com/kendrikat/grape-swagger-ui/issues/4)
+
+**Merged pull requests:**
+
+- Support swagger spec 2.0 [\#8](https://github.com/kendrikat/grape-swagger-ui/pull/8) ([dangnm](https://github.com/dangnm))
 
 ## [v0.0.2](https://github.com/kendrikat/grape-swagger-ui/tree/v0.0.2) (2015-01-14)
 [Full Changelog](https://github.com/kendrikat/grape-swagger-ui/compare/v0.0.1...v0.0.2)
