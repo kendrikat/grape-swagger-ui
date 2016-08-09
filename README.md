@@ -5,12 +5,7 @@ Grape::Swagger::Ui
 
 TODO/WIP: Write a gem description
 
-Integrates [swagger-ui] with your "grapified" Rails3 application.
-
-** UPDATE FOR 0.0.9 **
--
-
-- The property for specifying your Swagger endpoint on SwaggerUi has been renamed from 'discoveryUrl' to just 'url'.  This has been updated in the index page template 'swagger.html.erb' but you will need to either regenerate or manually edit your existing page.
+Integrates [swagger-ui] with your "grapified" Rails application.
 
 ## Dependencies
 
@@ -36,11 +31,15 @@ Or install it yourself as:
 
 ## Usage example:
 
-    # class YourAPI < Grape::API
-    add_swagger_documentation :format => :json,
-                              :api_version => 'v1',
-                              :base_path => "http://#{Rails.configuration.default_host}/api/",
-                              :hide_documentation_path => true
+    class YourAPI < Grape::API
+      version 'v1'
+      format :json
+      ...
+      add_swagger_documentation :add_version => true,
+                                :base_path => '/api'
+    end
+
+*See https://github.com/ruby-grape/grape-swagger#configure for more configuration settings.*
 
 If your api path is "api/v1" just go to
 
@@ -57,11 +56,8 @@ and change the initializer.
 Since this is a seperate layout and if you want to use this in your staging environment you need to precompile it.
 
 	#staging.rb
-	config.assets.precompile += ["swagger_ui.css", "swagger_ui.js"]
+	config.assets.precompile += %w(swagger_ui.js swagger_ui.css swagger_ui_print.css swagger_ui_screen.css)
 
-## Version
-
-0.0.9
 
 ## Contributing
 
