@@ -1,12 +1,15 @@
 # Change Log
 
-## [Unreleased](https://github.com/kendrikat/grape-swagger-ui/tree/HEAD)
-
-[Full Changelog](https://github.com/kendrikat/grape-swagger-ui/compare/v0.0.3...HEAD)
+## [v0.1.1](https://github.com/kendrikat/grape-swagger-ui/tree/v0.1.1) (2017-01-24)
+[Full Changelog](https://github.com/kendrikat/grape-swagger-ui/compare/v0.0.3...v0.1.1)
 
 **Closed issues:**
 
 - Swagger UI needs to be updated  [\#9](https://github.com/kendrikat/grape-swagger-ui/issues/9)
+
+**Merged pull requests:**
+
+- Fix url protocol in search placeholder [\#10](https://github.com/kendrikat/grape-swagger-ui/pull/10) ([skoddowl](https://github.com/skoddowl))
 
 ## [v0.0.3](https://github.com/kendrikat/grape-swagger-ui/tree/v0.0.3) (2016-08-09)
 [Full Changelog](https://github.com/kendrikat/grape-swagger-ui/compare/v0.0.2...v0.0.3)
