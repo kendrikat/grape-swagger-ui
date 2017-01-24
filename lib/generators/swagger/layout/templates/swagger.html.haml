@@ -22,7 +22,7 @@
         if (url && url.length > 1) {
           url = decodeURIComponent(url[1]);
         } else {
-          url = "http://#{request.host}:#{request.port}/api/v1/swagger_doc";
+          url = "#{window.location.protocol}//#{request.host}:#{request.port}/api/v1/swagger_doc";
         }
 
         hljs.configure({
@@ -93,4 +93,3 @@
             %a#explore.header__btn{"data-sw-translate" => "", :href => "#"} Explore
     #message-bar.swagger-ui-wrap{"data-sw-translate" => ""} &nbsp;
     #swagger-ui-container.swagger-ui-wrap
-
