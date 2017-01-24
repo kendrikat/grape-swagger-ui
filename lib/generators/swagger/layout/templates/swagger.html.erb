@@ -21,7 +21,7 @@
         if (url && url.length > 1) {
           url = decodeURIComponent(url[1]);
         } else {
-           url = "<%%= request.protocol %><%%= request.host %>:<%%= request.port %>/api/v1/swagger_doc";
+          url = "<%%= request.protocol %><%%= request.host %>:<%%= request.port %>/api/v1/swagger_doc";
         }
 
         hljs.configure({
