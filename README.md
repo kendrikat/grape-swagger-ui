@@ -49,9 +49,9 @@ else
 
 *Generate the main layout for customizations*
 
-	rails generate swagger:layout
+	rails generate swagger:layout [TEMPLATE_ENGINE]
 
-and change the initializer.
+and change the initializer. Currently supported: ERB, HAML
 
 Since this is a seperate layout and if you want to use this in your staging environment you need to precompile it.
 
