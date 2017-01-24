@@ -9,7 +9,7 @@ module Swagger
       end
 
       def create_swagger_layout
-        template 'swagger.html.haml', File.join('app', 'views', 'layouts', "swagger.html.#{template_engine.underscore}")
+        template "swagger.html.#{template_engine.underscore}", File.join('app', 'views', 'layouts', "swagger.html.#{template_engine.underscore}")
       end        
     end
   end

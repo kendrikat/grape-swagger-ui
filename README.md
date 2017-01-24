@@ -51,7 +51,7 @@ else
 
 	rails generate swagger:layout [TEMPLATE_ENGINE]
 
-and change the initializer. Currently supported: ERB, HAML
+and change the initializer. Currently supported: ERB, HAML, SLIM.
 
 Since this is a seperate layout and if you want to use this in your staging environment you need to precompile it.
 
