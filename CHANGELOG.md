@@ -1,5 +1,8 @@
 # Change Log
 
+## [v2.2.8](https://github.com/kendrikat/grape-swagger-ui/tree/v2.2.8) (2017-03-15)
+[Full Changelog](https://github.com/kendrikat/grape-swagger-ui/compare/v0.1.1...v2.2.8)
+
 ## [v0.1.1](https://github.com/kendrikat/grape-swagger-ui/tree/v0.1.1) (2017-01-24)
 [Full Changelog](https://github.com/kendrikat/grape-swagger-ui/compare/v0.0.3...v0.1.1)
 
