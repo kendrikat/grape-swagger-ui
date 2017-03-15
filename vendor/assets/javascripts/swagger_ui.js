@@ -11,12 +11,13 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 
+
 //= require './lib/object-assign-pollyfill.js'
 //= require './lib/jquery-1.8.0.min.js'
 //= require './lib/jquery.slideto.min.js'
 //= require './lib/jquery.wiggle.min.js'
 //= require './lib/jquery.ba-bbq.min.js'
-//= require './lib/handlebars-2.0.0.js'
+//= require './lib/handlebars-4.0.5.js'
 //= require './lib/js-yaml.min.js'
 //= require './lib/lodash.min.js'
 //= require './lib/backbone-min.js'

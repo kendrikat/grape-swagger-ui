@@ -10,9 +10,7 @@
  *
  *= require_self
  *= require typography
- *= require 'reset'
+ *= require reset
  *= require screen
- *= require 'reset_2'
  *= require print
-
  */
